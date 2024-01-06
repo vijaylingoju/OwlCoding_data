@@ -1,0 +1,12 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n, a, b;
+    cin>>n>>a>>b;
+    int x = a^b, cnt = 0;
+    for(int i = 31; i >= 0; i--){
+        if(x&(1<<i))cnt+=1;
+    }
+    if(cnt%2==0)cout<<cnt/2;
+    else cout<<"-1";
+}
