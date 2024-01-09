@@ -1,0 +1,29 @@
+vector<int> factorial(int N){
+            // code here
+            if(N==1)return {1};
+            long long SIZE = 1e4;
+            vector<long long>fact(SIZE,-1);
+            fact[0] = 1;
+            
+            for(long long i = 2; i <= N; i++){
+                long long j  = 0, carry = 0;
+                while(fact[j]!=-1){
+                    int k = (fact[j]*i)  + carry;
+                    fact[j] = k%10;
+                    carry = k/10;
+                    j+=1;
+                }
+                // cout<<carry<<"---";
+                while(carry>0){
+                    fact[j] = carry % 10;
+                    carry/=10;
+                    j+=1;
+                }
+    
+            }
+            vector<int>ans;
+            for(long long i = SIZE-1; i >= 0; i--){
+                if(fact[i]!=-1)ans.push_back(fact[i]);
+            }
+            return ans;
+        }
