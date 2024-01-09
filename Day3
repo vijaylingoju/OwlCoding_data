@@ -1,0 +1,10 @@
+a=input()
+b=input()
+if(len(a)!=len(b)):
+    print(0)
+else:
+    if(len(a)==len(b)):
+        if(sorted(a)==sorted(b)):
+            print(1)
+    else:
+        print(0)
